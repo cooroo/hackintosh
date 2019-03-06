@@ -1,12 +1,12 @@
-# Minimal Clover Config and Kexts for Gigabyte Z390 I WIFI | 9700K
+# Minimal Clover Config and Kexts for Gigabyte Z390 I WIFI
 
 ## Why minimal
 
-There are many tutorial and builds around the hackintosh community, but most of them use a lot of clover config and kexts, and those value/kexts lacks of explaination. I tried to search the meaning of the clover config item, but neither clover wiki nor forum (even golden builds) offer me answers. When someone ask questions in tonymacx or other hackintosh forums, most of time what they get is not an answers, but an EFI.zip. Sometimes an EFI.zip is shortcut to success maybe, but the "blackbox" do not offer any knowleage to solve the problem.
+There are many tutorial and builds around the hackintosh community, but most of them use a lot of clover config and kexts, and those value/kexts lacks of explaination. I tried to search the meaning of the clover config item, but neither clover wiki nor forum (even golden builds) offer an answers. When someone ask questions in tonymacx or other hackintosh forums, most of time what they get is not an answers, but an EFI.zip. Sometimes an EFI.zip is shortcut to success maybe, but the "blackbox" do not offer any knowleage to solve problems.
 
-So I want to build my hackintosh with minimal config and kexts, I don't know how they works in detail, but I know what they use for at least.
+So I want to build a hackintosh with minimal config and kexts, maybe I don't know how they works in detail, but I know what they use for at least.
 
-Correct my if I am wrong, Thanks in advance.
+Correct me if I am wrong!
 
 ## Parts
 
@@ -20,7 +20,7 @@ Correct my if I am wrong, Thanks in advance.
 
 ## Envirenmens
 
-The installation base on vanilla hackintosh tutorial(with excelent explaination) all software/os use the latest version by now(2, March, 2019), but newer versions may works well.
+The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/)(with excelent explaination). All software/os use the latest version by now(2, March, 2019), but newer versions may works well.
 
 - macOS version: Mojave 10.14.3
 - BIOS version: f5d
@@ -37,7 +37,7 @@ The installation base on vanilla hackintosh tutorial(with excelent explaination)
     - Vt-d. It's OK with default value "Enabled"
 
 - Create Installation Media
-  - It doesn't matter what usb versions you use. Both USB 2.0 and 3.0 works well.
+  - It doesn't matter what usb stick you use. Both USB 2.0 and 3.0 works well.
   - download macOS from Mac App Store
   - follow the vanilla tutorial
     ```bash
@@ -60,7 +60,7 @@ The installation base on vanilla hackintosh tutorial(with excelent explaination)
     - uncheck others
 
 - Cleanup EFI folder
-  - mount EFI folder with Clover Configurator.app
+  - mount EFI folder with [Clover Configurator.app](https://mackie100projects.altervista.org/download/ccg/)
   - delete 'drivers64' folder under 'EFI/CLOVER', we don't need lagency drivers as we boot via UEFI only
   - in 'EFI/CLOVER/drivers64UEFI', 3 drivers: 'ApfsDriverLoader-64.efi', 'AptioMemoryFix-64.efi', 'HFSPlus.efi' are enough, delete others. 'ApfsDriverLoader-64.efi' allow clover to read/write apfs partions, 'AptioMemoryFix-64.efi' for memory management, 'HFSPlus.efi' for reading/writing HFS partions and faster than 'VBoxHfs-64.efi' driver.
   - copy [lilu.kext](https://github.com/acidanthera/Lilu/releases)(download the zip file which has 'RELEASE' in the filename) and [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/releases)(download the zip file which has 'RELEASE' in the filename) to 'EFI/CLOVER/kexts/Other' folder. 'VirtualSMC.kext' supercedes FakeSMC.kext as our SMC emulator, it requires 'Lilu.kext' for full functioning. All 'EFI/CLOVER/kexts/10.x.x' folder should be empty or deleted.
@@ -155,7 +155,7 @@ The installation base on vanilla hackintosh tutorial(with excelent explaination)
       <string>Yes</string>
   </dict>
   ```
-  - That's all, final [config.plist](./minimal-usb-stick-config.plist) is simple.
+  - That's all, the [minimal-usb-stick-config.plist](./minimal-usb-stick-config.plist) for installation is simple, it's not perfect, but it works and easy to debug.
 
 ## Installation
 ## Post-Installation
