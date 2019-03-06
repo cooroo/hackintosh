@@ -60,14 +60,14 @@ The installation base on vanilla hackintosh tutorial(with excelent explaination)
     - uncheck others
 
 - Cleanup EFI folder
-  - mount EFI folder with Clover Config.app
+  - mount EFI folder with Clover Configurator.app
   - delete 'drivers64' folder under 'EFI/CLOVER', we don't need lagency drivers as we boot via UEFI only
-  - in 'EFI/CLOVER/drivers64UEFI', 3 drivers: 'ApfsDriverLoader-64.efi', 'AptioMemoryFix-64.efi', 'HFSPlus.efi' are enougth, delete others. 'ApfsDriverLoader-64.efi' allow clover to read/write apfs partions, 'AptioMemoryFix-64.efi' for memory management, 'HFSPlus.efi' for reading/writing HFS partions and faster than 'VBoxHfs-64.efi' driver.
+  - in 'EFI/CLOVER/drivers64UEFI', 3 drivers: 'ApfsDriverLoader-64.efi', 'AptioMemoryFix-64.efi', 'HFSPlus.efi' are enough, delete others. 'ApfsDriverLoader-64.efi' allow clover to read/write apfs partions, 'AptioMemoryFix-64.efi' for memory management, 'HFSPlus.efi' for reading/writing HFS partions and faster than 'VBoxHfs-64.efi' driver.
   - copy [lilu.kext](https://github.com/acidanthera/Lilu/releases)(download the zip file which has 'RELEASE' in the filename) and [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/releases)(download the zip file which has 'RELEASE' in the filename) to 'EFI/CLOVER/kexts/Other' folder. 'VirtualSMC.kext' supercedes FakeSMC.kext as our SMC emulator, it requires 'Lilu.kext' for full functioning. All 'EFI/CLOVER/kexts/10.x.x' folder should be empty or deleted.
   - the final usb stick's EFI folder: ![USB-EFI-folder](./screenshots/USB-EFI-folder.png)
 
 - Cleanup config.plist
-  - open 'EFI/CLOVER/config.plist' by editor such as 'sublime text','vim' and so on. delete all content between `<dict>` and `</dict>`, we will add content later.
+  - open 'EFI/CLOVER/config.plist' by text editor such as 'sublime text','vim' etc. delete all content between `<dict>` and `</dict>`, we will add content later.
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -76,7 +76,7 @@ The installation base on vanilla hackintosh tutorial(with excelent explaination)
   </dict>
   </plist>
   ```
-  - `Boot` Section, add below content to config.plist. `-v` argument will print log to screen, `debug=0x100` will prevent autoreboot when kernel panic, `keepsyms=1` will print symbols on kernel panic. All there 3 arguments help us understand what's going on when booting.
+  - `Boot` Section. Add below content to config.plist. `-v` argument will print log to screen, `debug=0x100` will prevent autoreboot when kernel panic, `keepsyms=1` will print symbols on kernel panic. All this 3 arguments help us understand what's going on when booting.
   ```xml
   <key>Boot</key>
   <dict>
@@ -92,7 +92,7 @@ The installation base on vanilla hackintosh tutorial(with excelent explaination)
       <true/>
   </dict>
   ```
-  - `Graphics` Section. When Clover detects an Intel iGPU, it automatically enables Intel Injection if the Graphics section doesn't exist in the config.plist. We don't need injection to make iGPU works, even worst, we can't boot with injection on. to bypass this, we must explicitly disable injection.
+  - `Graphics` Section. When Clover detects an Intel iGPU, it automatically enables Intel Injection if the Graphics section doesn't exist in the config.plist. We don't need injection to make iGPU works, even worse, we can't boot with injection on. To bypass this, we must explicitly disable injection.
   ```xml
   <key>Graphics</key>
   <dict>
@@ -100,7 +100,7 @@ The installation base on vanilla hackintosh tutorial(with excelent explaination)
       <false/>
   </dict>
   ```
-  - `KernelAndKextPatches` Section. In order to make all use port works, we need a patch, otherwise will stuck at 'waiting for boot media' if the port which usb stick pluged in doesn't work.
+  - `KernelAndKextPatches` Section. In order to make all usb port works, we need a patch, otherwise will stuck at 'waiting for boot media' if the port which usb stick plugged in doesn't work.
   ```xml
   <key>KernelAndKextPatches</key>
   <dict>
@@ -146,6 +146,7 @@ The installation base on vanilla hackintosh tutorial(with excelent explaination)
       <key>ProductName</key>
       <string>iMac18,1</string>
   </dict>
+  ```
   - `SystemParameters` Section. We set `InjectKexts` to Yes to make sure that all the kexts we added before get injected properly.
   ```xml
   <key>SystemParameters</key>
