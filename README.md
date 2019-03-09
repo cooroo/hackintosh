@@ -67,6 +67,7 @@ The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.g
   - the final usb stick's EFI folder: ![USB-EFI-folder](./screenshots/USB-EFI-folder.png)
 
 - Cleanup config.plist
+
   [minimal preinstall clover config explaination](./minimal-usb-stick-config-explaination.md)
 
 ## Installation
@@ -79,7 +80,7 @@ The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.g
 
 ## Post-Installation
 
-In Post-Installation, we will fix some issues with more clover config and kexts. First of all, install clover to SSD with same options/drivers as pre-installation.
+In Post-Installation, we will fix some issues with more clover config and kexts. First of all, install clover to SSD with same options/drivers as pre-installation then:
 
 - [Fill `SMBIOS` and `RtVariables` sections with more details](./post-installation-fill-smbios.md)
 - [Fix network](./post-installation-fix-network.md)
