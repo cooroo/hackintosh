@@ -20,7 +20,7 @@ Correct me if I am wrong!
 
 ## Envirenmens
 
-The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/)(with excelent explaination). All software/os use the latest version by now(2, March, 2019), but newer versions may works well.
+The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/) (with excellent explaination). All software/os use the latest version by now(2, March, 2019), but newer versions may works well.
 
 - macOS version: Mojave 10.14.3
 - BIOS version: f5d
@@ -62,100 +62,27 @@ The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.g
 - Cleanup EFI folder
   - mount EFI folder with [Clover Configurator.app](https://mackie100projects.altervista.org/download/ccg/)
   - delete 'drivers64' folder under 'EFI/CLOVER', we don't need lagency drivers as we boot via UEFI only
-  - in 'EFI/CLOVER/drivers64UEFI', 3 drivers: 'ApfsDriverLoader-64.efi', 'AptioMemoryFix-64.efi', 'HFSPlus.efi' are enough, delete others. 'ApfsDriverLoader-64.efi' allow clover to read/write apfs partions, 'AptioMemoryFix-64.efi' for memory management, 'HFSPlus.efi' for reading/writing HFS partions and faster than 'VBoxHfs-64.efi' driver.
-  - copy [lilu.kext](https://github.com/acidanthera/Lilu/releases)(download the zip file which has 'RELEASE' in the filename) and [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/releases)(download the zip file which has 'RELEASE' in the filename) to 'EFI/CLOVER/kexts/Other' folder. 'VirtualSMC.kext' supercedes FakeSMC.kext as our SMC emulator, it requires 'Lilu.kext' for full functioning. All 'EFI/CLOVER/kexts/10.x.x' folder should be empty or deleted.
+  - in 'EFI/CLOVER/drivers64UEFI', 3 drivers: 'ApfsDriverLoader-64.efi', 'AptioMemoryFix-64.efi', 'HFSPlus.efi' are enough, delete others. 'ApfsDriverLoader-64.efi' allow clover to read/write apfs partions, 'AptioMemoryFix-64.efi' for memory management, 'HFSPlus.efi' for reading/writing HFS partions and faster than 'VBoxHfs-64.efi' driver. Network, Audio and Video kexts are unnecessary at installation.
+  - copy [lilu.kext](https://github.com/acidanthera/Lilu/releases)(download the zip file which has 'RELEASE' in the filename) and [VirtualSMC.kext](https://github.com/acidanthera/VirtualSMC/releases)(download the zip file which has 'RELEASE' in the filename) to 'EFI/CLOVER/kexts/Other' folder. 'VirtualSMC.kext' supercedes FakeSMC.kext as our SMC emulator, it requires 'Lilu.kext' for full functioning. All 'EFI/CLOVER/kexts/10.x.x' folder should be empty or deleted. There is a guide about [lilu](https://www.tonymacx86.com/threads/an-idiots-guide-to-lilu-and-its-plug-ins.260063/)
   - the final usb stick's EFI folder: ![USB-EFI-folder](./screenshots/USB-EFI-folder.png)
 
 - Cleanup config.plist
-  - open 'EFI/CLOVER/config.plist' by text editor such as 'sublime text','vim' etc. delete all content between `<dict>` and `</dict>`, we will add content later.
-  ```xml
-  <?xml version="1.0" encoding="UTF-8"?>
-  <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-  <plist version="1.0">
-  <dict>
-  </dict>
-  </plist>
-  ```
-  - `Boot` Section. Add below content to config.plist. `-v` argument will print log to screen, `debug=0x100` will prevent autoreboot when kernel panic, `keepsyms=1` will print symbols on kernel panic. All this 3 arguments help us understand what's going on when booting.
-  ```xml
-  <key>Boot</key>
-  <dict>
-      <key>Arguments</key>
-      <string>-v debug=0x100 keepsyms=1</string>
-  </dict>
-  ```
-  - `Devices` Section. Must set 'fixOwnership' to true, otherwise we will stuck at 'waiting for booting media'. You can ignore this option if you set your BIOS 'XHCI Hand-off' to 'Enabled'.
-  ```xml
-  <key>USB</key>
-  <dict>
-      <key>FixOwnership</key>
-      <true/>
-  </dict>
-  ```
-  - `Graphics` Section. When Clover detects an Intel iGPU, it automatically enables Intel Injection if the Graphics section doesn't exist in the config.plist. We don't need injection to make iGPU works, even worse, we can't boot with injection on. To bypass this, we must explicitly disable injection.
-  ```xml
-  <key>Graphics</key>
-  <dict>
-      <key>Inject</key>
-      <false/>
-  </dict>
-  ```
-  - `KernelAndKextPatches` Section. In order to make all usb port works, we need a patch, otherwise will stuck at 'waiting for boot media' if the port which usb stick plugged in doesn't work.
-  ```xml
-  <key>KernelAndKextPatches</key>
-  <dict>
-      <key>KextsToPatch</key>
-      <array>
-          <dict>
-              <key>Comment</key>
-              <string>Port limit increase (Ricky)</string>
-              <key>Disabled</key>
-              <false/>
-              <key>Find</key>
-              <data>
-              g/sPD4OPBAAA
-              </data>
-              <key>InfoPlistPatch</key>
-              <false/>
-              <key>MatchOS</key>
-              <string>10.14.x</string>
-              <key>Name</key>
-              <string>com.apple.driver.usb.AppleUSBXHCI</string>
-              <key>Replace</key>
-              <data>
-              g/sPkJCQkJCQ
-              </data>
-          </dict>
-      </array>
-  </dict>
-  ```
-  - `RtVariables` Section. BooterConfig gets set to 0x28, and CsrActiveConfig is set to 0x3e7 which effectively disables SIP.
-  ```xml
-  <key>RtVariables</key>
-  <dict>
-      <key>BooterConfig</key>
-      <string>0x28</string>
-      <key>CsrActiveConfig</key>
-      <string>0x3E7</string>
-  </dict>
-  ```
-  - `SMBIOS` Section.
-  ```xml
-  <key>SMBIOS</key>
-  <dict>
-      <key>ProductName</key>
-      <string>iMac18,1</string>
-  </dict>
-  ```
-  - `SystemParameters` Section. We set `InjectKexts` to Yes to make sure that all the kexts we added before get injected properly.
-  ```xml
-  <key>SystemParameters</key>
-  <dict>
-      <key>InjectKexts</key>
-      <string>Yes</string>
-  </dict>
-  ```
-  - That's all, the [minimal-usb-stick-config.plist](./minimal-usb-stick-config.plist) for installation is simple, it's not perfect, but it works and easy to debug.
+  [minimal preinstall clover config explaination](./minimal-usb-stick-config-explaination.md)
 
 ## Installation
+
+- Plug usb stick to your PC, and restart. Press F12 to choose boot media, select your usb stick to boot.
+- In Clover boot menu, choose your usb stick.
+- When installer boots, enter Disk Utility and format "Erase" your SSD. Choose the APFS and Guid Partition. Yes I choose 'APFS' not 'MacOS Extended (Journaled)', I stuck at installation when choose the later one.
+- Exit Disk Utility
+- Install Mojave
+
 ## Post-Installation
+
+In Post-Installation, we will fix some issues with more clover config and kexts. First of all, install clover to SSD with same options/drivers as pre-installation.
+
+- [Fill `SMBIOS` and `RtVariables` sections with more details](./post-installation-fill-smbios.md)
+- [Fix network](./post-installation-fix-network.md)
+- [Fix audio and iGPU](./post-installation-fix-audio-igpu.md)
+- [Fix restart and shutdown](./post-installation-fix-restart-shutdown.md)
+- [Config headless mode](./post-installation-config-headless-mode.md)
