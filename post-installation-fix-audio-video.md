@@ -8,15 +8,24 @@
 
 - download and open [hackintool](https://www.tonymacx86.com/threads/release-hackintool-v1-9-6.254559/)
 - select `macOS 10.14` at the menubar
-  ![]( ./screenshots/fix-audio-video/select-macos.jpg )
+
+  ![](./screenshots/fix-audio-video/select-macos.jpg )
+
 - select `Coffee Lake` as IntelGen. `3E9B0007` or `3E920003` as PlatformId.
+
   ![](./screenshots/fix-audio-video/platform-id.jpg)
+
 - select `7` as layout id at audio tab
+
   ![](./screenshots/fix-audio-video/layout-id.jpg)
+
 - generate patch
+
   ![](./screenshots/fix-audio-video/generate-patch-1.jpg)
   ![](./screenshots/fix-audio-video/generate-patch-2.jpg)
+
 - copy patch output to config.plist
 - after reboot.
+
   ![](./screenshots/fix-audio-video/after-patch-system-info.jpg)
   ![](./screenshots/fix-audio-video/after-patch-hackintool-info.jpg)
