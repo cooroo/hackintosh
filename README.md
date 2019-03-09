@@ -52,7 +52,7 @@ The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.g
     ```
 
 - Install Clover to USB stick
-  - install clover, choose usb stick as installation destination
+  - install clover, click "Change Install Location" then choose your usb device.
   - click 'Customize' button at left bottom
     - check 'Clover for UEFI booting only'
     - check 'Install Clover in the ESP'
