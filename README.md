@@ -17,14 +17,16 @@ Correct me if I am wrong!
 - Samsung 970Evo 250G for Windows
 - Western Digital 2.5' 1TB HDD
 - Asus USB-AC53-Nano Wi-Fi Adapter
+- SAPPHIRE PULSE ITX Radeon™ RX 570 4GD5
 
 ## Envirenmens
 
-The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/) (with excellent explaination). All software/os use the latest version by now(2, March, 2019), but newer versions may works well.
+The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/) (with excellent explaination).
 
 - macOS version: Mojave 10.14.3
 - BIOS version: f5d
-- CLOVER version: v2.4k r4884
+- CLOVER version: v2.4k r4894. (r4897, r4896, r4895 tested, can't boot.)
+- hackintool: v2.0.3
 
 ## Pre-Installation
 
