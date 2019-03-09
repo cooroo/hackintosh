@@ -1,4 +1,6 @@
-# Minimal Clover Config and Kexts for Gigabyte Z390 I WIFI
+# Minimal Clover Config and Drivers for Gigabyte Z390 I WIFI
+
+*[PRs](https://github.com/icymind/hackintosh/pulls) are welcome!*
 
 ## Why minimal
 
