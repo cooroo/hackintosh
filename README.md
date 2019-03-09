@@ -84,6 +84,6 @@ In Post-Installation, we will fix some issues with more clover config and kexts.
 
 - [Fill `SMBIOS` and `RtVariables` sections with more details](./post-installation-fill-smbios.md)
 - [Fix network](./post-installation-fix-network.md)
-- [Fix audio and iGPU](./post-installation-fix-audio-igpu.md)
+- [Fix audio and video](./post-installation-fix-audio-video.md)
 - [Fix restart and shutdown](./post-installation-fix-restart-shutdown.md)
 - [Config headless mode](./post-installation-config-headless-mode.md)
