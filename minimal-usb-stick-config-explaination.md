@@ -25,7 +25,10 @@ The [minimal-usb-stick-config.plist](./minimal-usb-stick-config.plist) for insta
 <key>Graphics</key>
 <dict>
     <key>Inject</key>
-    <false/>
+    <dict>
+        <key>Intel</key>
+        <false/>
+    </dict>
 </dict>
 ```
 
