@@ -1,6 +1,6 @@
-# Minimal USB stick clover config explaination
+# Minimal USB stick clover config explanation
 
-The [minimal-usb-stick-config.plist](./minimal-usb-stick-config.plist) for installation is simple, it's not perfect, but it works and easy to debug. Here is the explaination for each section:
+The [minimal-usb-stick-config.plist](./minimal-usb-stick-config.plist) for installation is simple, it's not perfect, but it works and easy to debug. Here is the explanation for each section:
 
 - `Boot` Section. Add below content to config.plist. `-v` argument will print log to screen, `debug=0x100` will prevent autoreboot when kernel panic, `keepsyms=1` will print symbols on kernel panic. All this 3 arguments help us understand what's going on when booting.
 ```xml

@@ -2,7 +2,7 @@
 
 ## Why minimal
 
-There are many tutorial and builds around the hackintosh community, but most of them use a lot of clover config and kexts, and those value/kexts lacks of explaination. I tried to search the meaning of the clover config item, but neither clover wiki nor forum (even golden builds) offer an answers. When someone ask questions in tonymacx or other hackintosh forums, most of time what they get is not an answers, but an EFI.zip. Sometimes an EFI.zip is shortcut to success maybe, but the "blackbox" do not offer any knowleage to solve problems.
+There are many tutorial and builds around the hackintosh community, but most of them use a lot of clover config and kexts, and those value/kexts lacks of explanation. I tried to search the meaning of the clover config item, but neither clover wiki nor forum (even golden builds) offer an answers. When someone ask questions in tonymacx or other hackintosh forums, most of time what they get is not an answers, but an EFI.zip. Sometimes an EFI.zip is shortcut to success maybe, but the "blackbox" do not offer any knowledge to solve problems.
 
 So I want to build a hackintosh with minimal config and kexts, maybe I don't know how they works in detail, but I know what they use for at least.
 
@@ -12,16 +12,16 @@ Correct me if I am wrong!
 
 - Gigabyte Z390 I WIFI
 - Intel i7 9700K
-- Corsair LPX DDR4 3000
+- Corsair LPX DDR4 3000 16GB x2
 - Samsung 970Evo 500G for macOS
 - Samsung 970Evo 250G for Windows
 - Western Digital 2.5' 1TB HDD
 - Asus USB-AC53-Nano Wi-Fi Adapter
 - SAPPHIRE PULSE ITX Radeon™ RX 570 4GD5
 
-## Envirenmens
+## Environment
 
-The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/) (with excellent explaination).
+The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/) (with excellent explanation).
 
 - macOS version: Mojave 10.14.3
 - BIOS version: f5d
@@ -70,7 +70,7 @@ The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.g
 
 - Cleanup config.plist
 
-  [minimal preinstall clover config explaination](./minimal-usb-stick-config-explaination.md)
+  [minimal preinstall clover config explanation](./minimal-usb-stick-config-explanation.md)
 
 ## Installation
 
