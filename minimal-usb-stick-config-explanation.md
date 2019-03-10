@@ -79,4 +79,4 @@ The [minimal-usb-stick-config.plist](./minimal-usb-stick-config.plist) for insta
 </dict>
 ```
 
-[depreciated configs for modern hackintosh](https://www.tonymacx86.com/threads/pastrychefs-asus-rog-strix-z370-g-gaming-wi-fi-ac-build-w-i9-9900k-amd-vega-56.239969/page-457#post-1865430)
+- What about `AppleRTC`, `AppleIntelCPUPM`, `KernelPm`, `KernelXCPM` etc, all of them are [unnecessary](https://www.tonymacx86.com/threads/pastrychefs-asus-rog-strix-z370-g-gaming-wi-fi-ac-build-w-i9-9900k-amd-vega-56.239969/page-457#post-1865430)
