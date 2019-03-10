@@ -94,3 +94,9 @@ In Post-Installation, we will fix some issues with more clover config and kexts.
 - SSD-clover-config-example: [with-iGPU](./ssd-clover-config-example-igpu.plist), [with-dGPU](./ssd-clover-config-example-dgpu.plist)
 - Where is the `USBInjectAll.kext`? Maybe it's unnecessary since we have all usb ports working already.
 - [Benchmark](./benchmark.md)
+
+## TODO
+
+- Test USB speed
+- Test multiple screens
+- Test `Wake On Lan`
