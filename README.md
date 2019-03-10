@@ -12,6 +12,8 @@ Correct me if I am wrong!
 
 ## Parts
 
+![parts](./screenshots/parts.jpeg)
+
 - Gigabyte Z390 I WIFI
 - Intel i7 9700K
 - Corsair LPX DDR4 3000 16GB x2
