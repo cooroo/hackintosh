@@ -25,10 +25,7 @@ The [minimal-usb-stick-config.plist](./minimal-usb-stick-config.plist) for insta
 <key>Graphics</key>
 <dict>
     <key>Inject</key>
-    <dict>
-        <key>Intel</key>
-        <false/>
-    </dict>
+    <false/>
 </dict>
 ```
 
@@ -62,18 +59,9 @@ The [minimal-usb-stick-config.plist](./minimal-usb-stick-config.plist) for insta
 </dict>
 ```
 
-- `RtVariables` Section. BooterConfig gets set to 0x28, and CsrActiveConfig is set to 0x3e7 which effectively disables SIP. According to [Clover's wiki](https://clover-wiki.zetam.org/Configuration/RtVariables#CsrActiveConfig), disable SIP should be `0x67`. But `0x3e7` disables more protections than `0x67`, [source](https://www.insanelymac.com/forum/topic/284656-clover-general-discussion/?page=552&tab=comments#comment-2466799):
-```xml
-<key>RtVariables</key>
-<dict>
-    <key>BooterConfig</key>
-    <string>0x28</string>
-    <key>CsrActiveConfig</key>
-    <string>0x3E7</string>
-</dict>
-```
+- `RtVariables` Section. We place kexts in EFI folder, so we don't need to disabled sip. According to [Clover's wiki](https://clover-wiki.zetam.org/Configuration/RtVariables#CsrActiveConfig), SIP disabled default, we don't need any setting in RtVariables.
 
-- `SMBIOS` Section.
+- `SMBIOS` Section. choose iMac18,1 as ProductName, it doesn't matter whether you have eGPU or not.
 ```xml
 <key>SMBIOS</key>
 <dict>

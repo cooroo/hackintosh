@@ -18,10 +18,7 @@
     <key>Graphics</key>
 	<dict>
 		<key>Inject</key>
-		<dict>
-			<key>Intel</key>
-			<false/>
-		</dict>
+		<false/>
 	</dict>
     <key>KernelAndKextPatches</key>
     <dict>
@@ -48,13 +45,6 @@
                 </data>
             </dict>
         </array>
-    </dict>
-    <key>RtVariables</key>
-    <dict>
-        <key>BooterConfig</key>
-        <string>0x28</string>
-        <key>CsrActiveConfig</key>
-        <string>0x3E7</string>
     </dict>
     <key>SMBIOS</key>
     <dict>
