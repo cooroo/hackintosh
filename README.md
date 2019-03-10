@@ -89,8 +89,9 @@ The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.g
 
 In Post-Installation, we will fix some issues with more clover config and kexts. First of all, install clover to SSD with same options/drivers as pre-installation then:
 
-- [Fill `SMBIOS` and `RtVariables` sections with more details](./post-installation-fill-smbios.md)
+- [Fill `SMBIOS` sections with more details](./post-installation-fill-smbios.md)
 - [Fix network](./post-installation-fix-network.md)
 - [Fix audio and video](./post-installation-fix-audio-video.md)
 - [Fix restart and shutdown](./post-installation-fix-restart-shutdown.md)
 - ssd-clover-config-example: [with-igpu](./ssd-clover-config-example-igpu.plist), [with-egpu](./ssd-clover-config-example-egpu.plist)
+- [benchmark](./benchmark.md)

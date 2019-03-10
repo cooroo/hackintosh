@@ -9,7 +9,7 @@
   <key>BoardSerialNumber</key>
   <string>XXXX</string>
   <key>ProductName</key>
-  <string>iMac18,3</string>
+  <string>iMac18,1</string>
   <key>SerialNumber</key>
   <string>XXXX</string>
   <key>SmUUID</key>
