@@ -41,7 +41,7 @@ The installation base on [hackintosh-vanilla-desktop-guide](https://hackintosh.g
     - CSM Support. It's OK with default value "Enabled""
     - XHCI Hand-off. It's OK with default value "Disabled"
     - Vt-d. It's OK with default value "Enabled"
-    - XMP. optional, choose Profile1 if you have supported MEM.
+    - XMP. optional, choose Profile1 if you have supported RAM.
 
 - Create Installation Media
   - It doesn't matter what usb stick you use. Both USB 2.0 and 3.0 works well.
